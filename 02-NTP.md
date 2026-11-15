@@ -16,7 +16,7 @@ chronyc tracking
 
 **Observación del material original:** aparecen `192.168.3.28` y `192.168.18.198` como IP de CentOS; son distintas. Se debe usar **la IP real actual** en todos los pasos.
 
-02. Arquitectura y requisitos
+**02. Arquitectura y requisitos**
 Arquitectura del servidor NTP
 La arquitectura del servidor NTP se basa en la comunicación entre dos sistemas operativos: Windows, que funciona como equipo anfitrión, y CentOS Stream, que se encuentra instalado en una máquina virtual mediante VirtualBox.
 
