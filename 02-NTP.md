@@ -16,15 +16,29 @@ chronyc tracking
 
 **Observación del material original:** aparecen `192.168.3.28` y `192.168.18.198` como IP de CentOS; son distintas. Se debe usar **la IP real actual** en todos los pasos.
 
-## 02. Arquitectura y requisitos
+02. Arquitectura y requisitos
+Arquitectura del servidor NTP
+La arquitectura del servidor NTP se basa en la comunicación entre dos sistemas operativos: Windows, que funciona como equipo anfitrión, y CentOS Stream, que se encuentra instalado en una máquina virtual mediante VirtualBox.
 
-```text
-Fuentes horarias externas --> CentOS / chronyd (UDP 123)
-                                      |
-                             red puente VirtualBox
-                                      |
-                           Windows / servicio w32time
-```
+El sistema operativo CentOS utiliza el servicio Chrony (chronyd), encargado de mantener la hora del sistema sincronizada con fuentes horarias externas y proporcionar información horaria a otros equipos de la red.
+
+Por otro lado, Windows actúa como cliente NTP y utiliza el servicio Windows Time (w32time) para solicitar la hora al servidor CentOS.
+
+La comunicación entre ambos equipos se realiza mediante el adaptador de red en modo puente (Bridge) de VirtualBox, permitiendo que ambos sistemas se encuentren dentro de la misma red y puedan intercambiar información.
+Requisitos para su funcionamiento
+Para implementar correctamente el servidor NTP se necesitan los siguientes elementos:
+- CentOS Stream: sistema operativo que funciona como servidor NTP.
+- Chrony: servicio encargado de administrar la sincronización horaria.
+- Windows: equipo cliente que recibe la hora del servidor.
+- VirtualBox: herramienta de virtualización configurada con adaptador puente.
+- Puerto UDP 123: puerto utilizado por el protocolo NTP.
+- Firewalld: herramienta que permite controlar el tráfico de red y autorizar las conexiones necesarias.
+Funcionamiento de la arquitectura
+El funcionamiento comienza cuando el servidor CentOS obtiene la hora de una fuente horaria externa mediante Chrony. Posteriormente, el equipo Windows puede solicitar la sincronización horaria utilizando la dirección IP del servidor CentOS.
+
+Para permitir esta comunicación, es necesario que el servicio chronyd esté activo y que el firewall autorice las consultas NTP desde la red correspondiente.
+
+De esta manera, ambos sistemas pueden mantener una referencia horaria común, lo que contribuye al funcionamiento adecuado de los servicios de red y al registro correcto de los eventos del sistema.
 
 CentOS actúa como servidor de hora para Windows; necesita una fuente horaria confiable y la red cliente autorizada.
 
