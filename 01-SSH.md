@@ -18,8 +18,17 @@ sudo ss -lntp | grep sshd
 
 Confirmar que CentOS y Windows están en la misma red y que el acceso SSH por el puerto anterior funciona **antes** de modificarlo.
 
-## 02. Arquitectura y requisitos
+## 02. Arquitectura y requisitos 
 
+Arquitectura del servidor SSH
+
+La arquitectura del servicio SSH se basa en un modelo cliente-servidor, en el cual un equipo solicita acceso remoto y otro proporciona los recursos necesarios para establecer la conexión.
+
+En esta implementación, CentOS Stream cumple la función de servidor SSH y se encuentra instalado en una máquina virtual mediante VirtualBox. Por otro lado, Windows funciona como equipo cliente, utilizando la aplicación MobaXterm para establecer una conexión remota.
+
+La comunicación entre ambos sistemas se realiza mediante una configuración de red en modo puente (Bridge), que permite que la máquina virtual CentOS se conecte a la misma red que el equipo anfitrión.
+
+El servicio SSH utiliza normalmente el puerto TCP 22. Sin embargo, en esta práctica se establece el puerto personalizado 2237, con el objetivo de aplicar una configuración de acceso específica al servidor.
 ```text
 Windows / MobaXterm -- SSH TCP 2237 --> CentOS Stream (sshd)
                          Red puente de VirtualBox
