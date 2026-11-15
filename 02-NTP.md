@@ -66,6 +66,14 @@ Para permitir esta comunicación, es necesario que el servicio chronyd esté act
 
 De esta manera, ambos sistemas pueden mantener una referencia horaria común, lo que contribuye al funcionamiento adecuado de los servicios de red y al registro correcto de los eventos del sistema.
 
+```text
+Fuentes horarias externas --> CentOS / chronyd (UDP 123)
+                                      |
+                             red puente VirtualBox
+                                      |
+                           Windows / servicio w32time
+```
+
 ## 03. Despliegue y configuración
 
 ```bash
