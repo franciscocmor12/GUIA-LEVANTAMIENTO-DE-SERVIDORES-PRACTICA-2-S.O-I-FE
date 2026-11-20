@@ -1,4 +1,4 @@
-# 02 — SSH | Acceso remoto seguro
+# Servidor02 — SSH | Acceso remoto seguro
 
 **Integrantes:** Francisco Morillo y Esteban Nievecela  
 **Entorno:** CentOS Stream en VirtualBox (adaptador puente), Windows y MobaXterm.  
