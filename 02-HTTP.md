@@ -1,4 +1,4 @@
-# 02 — HTTP | Servidor web Apache
+# Servicio 02 — HTTP | Servidor web Apache
 
 **Entorno:** CentOS Stream / httpd y navegador de Windows.
 
