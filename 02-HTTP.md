@@ -6,25 +6,23 @@
 
 ## 01. Diagnóstico inicial
 
-```bash
+
 ip -br a
 rpm -q httpd
 sudo systemctl status httpd
 sudo ss -lntp | grep ':80'
 getenforce
-```
+
 
 ## 02. Arquitectura y requisitos
 
-```text
+
 Windows / navegador -- HTTP TCP 80 --> CentOS / Apache httpd
                                         └── /var/www/html/index.html
                                             /var/www/html/images.jpg
-```
 
 ## 03. Despliegue y configuración
 
-```bash
 sudo dnf install -y httpd
 sudo systemctl enable --now httpd
 httpd -v
@@ -32,13 +30,10 @@ sudo mkdir -p /var/www/html
 # Si ya existe una página personalizada, respaldarla antes de editar:
 [ ! -f /var/www/html/index.html ] || sudo cp /var/www/html/index.html /var/www/html/index.html.bak
 sudo nano /var/www/html/index.html
-```
 
-**Corrección del original:** `/usr/share/httpd/noindex/index.html` es la página de bienvenida del paquete, no la ubicación recomendada para el sitio personalizado. El HTML y la imagen deben compartir rutas coherentes dentro de `/var/www/html`.
+Ejemplo de contenido para index.html:
 
-Ejemplo de contenido para `index.html`:
-
-```html
+html
 <!doctype html>
 <html lang="es">
 <head><meta charset="utf-8"><title>Levantamiento de servidores</title></head>
