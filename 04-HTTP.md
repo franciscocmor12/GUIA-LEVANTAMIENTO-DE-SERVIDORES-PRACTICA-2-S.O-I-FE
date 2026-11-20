@@ -1,4 +1,4 @@
-# 04 — HTTP | Servidor web Apache
+# 02 — HTTP | Servidor web Apache
 
 **Entorno:** CentOS Stream / httpd y navegador de Windows.
 
