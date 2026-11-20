@@ -80,7 +80,7 @@ ssh -p 2237 usuario@IP_CENTOS
 
 **Criterio de aprobación:** se solicita autenticación y se abre una terminal remota; `ss` confirma escucha en 2237. Registrar captura de MobaXterm y salida de comandos.
 
-<img width="577" height="186" alt="image" src="https://github.com/user-attachments/assets/c7447515-4ee3-41cf-93d6-1b194b0bf4c3" />
+
 
 ## 06. Troubleshooting
 
